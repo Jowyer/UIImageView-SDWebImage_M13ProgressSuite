@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "UIImageView+SDWebImage_M13ProgressSuite"
-  s.version          = File.read('VERSION')
+  s.version          = "0.1.0"
   s.summary          = "Category of UIImageView, downloaded with SDWebImage, progressed with M13ProgressSuite."
   # s.description      = "some description"
   s.homepage         = "https://github.com/Jowyer/UIImageView-SDWebImage_M13ProgressSuite"
