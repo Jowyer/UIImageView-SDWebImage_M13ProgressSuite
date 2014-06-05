@@ -1,6 +1,5 @@
 # Uncomment this line to define a global platform for your project
 platform :ios, '7.0'
-podspec :path => "../UIImageView+SDWebImage_M13ProgressSuite.podspec"
 
 target "Demo" do
   pod "UIImageView+SDWebImage_M13ProgressSuite", :path => "../"
@@ -10,4 +9,3 @@ end
 # target "DemoTests" do
 #   pod 'Expecta'
 # end
-
