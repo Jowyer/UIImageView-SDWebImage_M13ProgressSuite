@@ -40,29 +40,23 @@
 }
 
 #pragma mark- Public Methods
-- (void)setImageUsingProgressViewRingWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(SDWebImageOptions)options progress:(SDWebImageDownloaderProgressBlock)progressBlock completed:(SDWebImageCompletedBlock)completedBlock ProgressPrimaryColor:(UIColor *)pColor ProgressSecondaryColor:(UIColor *)sColor Diameter:(float)diameter
+- (void)setImageUsingProgressViewRingWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder options:(SDWebImageOptions)options progress:(SDWebImageDownloaderProgressBlock)progressBlock completed:(SDWebImageCompletionBlock)completedBlock ProgressPrimaryColor:(UIColor *)pColor ProgressSecondaryColor:(UIColor *)sColor Diameter:(float)diameter
 {
     [self addProgressViewRingWithPrimaryColor:pColor SecondaryColor:sColor Diameter:diameter];
     
     __weak typeof(self) weakSelf = self;
-    
-    [self setImageWithURL:url
-         placeholderImage:placeholder
-                  options:options
-                 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                     CGFloat progress = ((CGFloat)receivedSize / (CGFloat)expectedSize);
-                     [weakSelf updateProgressViewRing:progress];
-                     if (progressBlock) {
-                         progressBlock(receivedSize, expectedSize);
-                     }
-                 }
-                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                    [weakSelf removeProgressViewRing];
-                    if (completedBlock) {
-                        completedBlock(image, error, cacheType);
-                    }
-                }
-     ];
+    [self sd_setImageWithURL:url placeholderImage:placeholder options:options progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        CGFloat progress = ((CGFloat)receivedSize / (CGFloat)expectedSize);
+        [weakSelf updateProgressViewRing:progress];
+        if (progressBlock) {
+            progressBlock(receivedSize, expectedSize);
+        }
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [weakSelf removeProgressViewRing];
+        if (completedBlock) {
+            completedBlock(image, error, cacheType, imageURL);
+        }
+    }];
 }
 
 @end

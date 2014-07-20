@@ -28,6 +28,6 @@ Pod::Spec.new do |s|
   s.osx.exclude_files = 'Classes/ios'
   # s.public_header_files = 'Classes/**/*.h'
   # s.frameworks = 'SomeFramework', 'AnotherFramework'
-  s.dependency 'SDWebImage', '~> 3.6'
-  s.dependency 'M13ProgressSuite', '~> 1.2.1'
+  s.dependency 'SDWebImage/Core'
+  s.dependency 'M13ProgressSuite'
 end
