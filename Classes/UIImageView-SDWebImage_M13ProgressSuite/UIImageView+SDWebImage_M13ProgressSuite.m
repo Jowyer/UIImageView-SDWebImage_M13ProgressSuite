@@ -45,7 +45,10 @@
     [self addProgressViewRingWithPrimaryColor:pColor SecondaryColor:sColor Diameter:diameter];
     
     __weak typeof(self) weakSelf = self;
-    [self sd_setImageWithURL:url placeholderImage:placeholder options:options progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    [self sd_setImageWithURL:url
+            placeholderImage:placeholder
+                     options:options
+                    progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         CGFloat progress = ((CGFloat)receivedSize / (CGFloat)expectedSize);
         [weakSelf updateProgressViewRing:progress];
         if (progressBlock) {
