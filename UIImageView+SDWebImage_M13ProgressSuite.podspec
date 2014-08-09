@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "UIImageView+SDWebImage_M13ProgressSuite"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "Category of UIImageView, downloaded with SDWebImage, progressed with M13ProgressSuite."
   # s.description      = "some description"
   s.homepage         = "https://github.com/Jowyer/UIImageView-SDWebImage_M13ProgressSuite"
@@ -28,6 +28,6 @@ Pod::Spec.new do |s|
   s.osx.exclude_files = 'Classes/ios'
   # s.public_header_files = 'Classes/**/*.h'
   # s.frameworks = 'SomeFramework', 'AnotherFramework'
-  s.dependency 'SDWebImage/Core'
+  s.dependency 'SDWebImage/WebP'
   s.dependency 'M13ProgressSuite'
 end
