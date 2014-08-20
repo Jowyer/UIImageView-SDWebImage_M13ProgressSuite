@@ -25,7 +25,7 @@
 
 -(IBAction)loadImage:(id)sender
 {
-    NSString *string = [NSString stringWithFormat:@"http://static2.dmcdn.net/static/video/463/885/43588364:jpeg_preview_small.jpg?20120409130206"];
+    NSString *string = [NSString stringWithFormat:@"http://ww3.sinaimg.cn/large/005IEMl9gw1ej8j1ylo8yg308205k7wi.gif"];
     NSURL *url = [NSURL URLWithString:string];
     [self.imageView setImageUsingProgressViewRingWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder.png"] options:0 progress:nil completed:nil ProgressPrimaryColor:[UIColor grayColor] ProgressSecondaryColor:[UIColor lightGrayColor] Diameter:50.];
 }
